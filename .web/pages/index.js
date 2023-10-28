@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 import { Event, getAllLocalStorageItems, getRefValue, getRefValues, isTrue, preventDefault, refs, spreadArraysOrObjects, uploadFiles, useEventLoop } from "/utils/state"
 import { ColorModeContext, EventLoopContext, initialEvents, StateContext } from "/utils/context.js"
 import "focus-visible/dist/focus-visible"
-import { Box, Button, Code, Heading, Image, Link, Modal, ModalBody, ModalContent, ModalHeader, ModalOverlay, Text, VStack } from "@chakra-ui/react"
+import { Box, Button, HStack, Image, Link, Modal, ModalBody, ModalContent, ModalHeader, ModalOverlay, Text, VStack } from "@chakra-ui/react"
 import { getEventURL } from "/utils/state.js"
 import { MoonIcon, SunIcon } from "@chakra-ui/icons"
 import NextLink from "next/link"
@@ -78,22 +78,31 @@ export default function Component() {
 )}
 </Fragment>
 </Button>
-  <Image src={`box 1.png`} sx={{"width": "100%", "height": "100%"}}/>
-  <VStack spacing={`1.5em`} sx={{"fontSize": "2em", "paddingTop": "10%"}}>
+  <VStack spacing={`1.5em`} sx={{"fontSize": "2em", "paddingTop": "10%", "background": "linear-gradient(180deg, #050303 0%, #2D2E2E 100%)", "backgroundSize": "100%"}}>
+  <Link as={NextLink} href={`https://reflex.dev/docs/getting-started/introduction`} sx={{"color": "#FBFBFB", "fontSize": "1em", "fontFamily": "static/Raleway-Light.ttf", "fontWeight": 400, "wordWrap": "break-word", "display": "flex", "justifyContent": "center", "alignItems": "center", "marginTop": "1em"}}>
+  {`Wardrobe`}
+</Link>
+  <HStack>
+  <Image src={`box 1.png`} sx={{"width": "30%", "marginTop": "3em"}}/>
+  <Image src={`box2.png`} sx={{"width": "30%"}}/>
+  <Image src={`box3.png`} sx={{"width": "30%", "marginTop": "3em"}}/>
+</HStack>
   <Text sx={{"color": "#FBFBFB", "fontSize": "2em", "fontFamily": "static/Raleway-Light.ttf", "fontWeight": 400, "wordWrap": "break-word"}}>
   {`Dressify`}
 </Text>
-  <Heading sx={{"fontSize": "2em"}}>
-  {`Welcome to REFLEX!`}
-</Heading>
-  <Box>
-  {`Begin by editing `}
-  <Code sx={{"fontSize": "1em"}}>
-  {`dressify/dressify.py`}
-</Code>
-</Box>
+  <Button onClick={(_e) => addEvents([Event("state.onclick", {})], (_e))}>
+  {`START`}
+</Button>
+  <Text sx={{"width": "100%", "height": "100%", "color": "#FBFBFB", "fontSize": "1em", "fontFamily": "static/Raleway-Light.ttf", "fontWeight": 400, "wordWrap": "break-word", "display": "flex", "justifyContent": "center", "alignItems": "center"}}>
+  {`GETTING STARTED`}
+</Text>
+  <HStack>
+  <Box sx={{"width": "30%", "height": "100px", "background": "#BCABAE", "borderRadius": "218.50px"}}/>
+  <Box sx={{"width": "30%", "height": "100px", "background": "#FBFBFB", "borderRadius": "218.50px"}}/>
+  <Box sx={{"width": "30%", "height": "100px", "background": "#716969", "borderRadius": "218.50px"}}/>
+</HStack>
   <Link as={NextLink} href={`https://reflex.dev/docs/getting-started/introduction`} sx={{"border": "0.1em solid", "padding": "0.5em", "borderRadius": "0.5em", "_hover": {"color": isTrue((colorMode === "light")) ? `rgb(107,99,246)` : `rgb(179, 175, 255)`}}}>
-  {`gremlin!`}
+  {`+ add items`}
 </Link>
 </VStack>
 </Fragment>
