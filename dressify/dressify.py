@@ -2,15 +2,12 @@
 from rxconfig import config
 
 import reflex as rx
+from .state import State
+from .selections import selections
 
 docs_url = "https://reflex.dev/docs/getting-started/introduction"
 filename = f"{config.app_name}/{config.app_name}.py"
 
-
-class State(rx.State):
-    """The app state."""
-    def onclick(self):
-        return rx.redirect("http://google.com")
 
 def index() -> rx.Component:
     return rx.fragment(
@@ -79,22 +76,70 @@ def index() -> rx.Component:
             
             rx.hstack(
                 rx.box(
-                    width="30%",
+                    rx.image(
+                        src="icon1.png",  
+                        width="100%",
+                        height="100px", 
+                        object_fit="cover", 
+                    ),
+                    rx.text(
+                        "browse wardrobe",  
+                        color="#FBFBFB",  
+                        font_size="0.5em",
+                        display="flex",
+                        justify_content="center",
+                        align_items="center",
+                    ),
+                    width="100%",
                     height="100px",
                     background= "#BCABAE",
                     border_radius="218.50px",
+                    margin_right= "2rem",
                 ),
+
                 rx.box(
-                    width="30%",
+                    rx.image(
+                        src="icon2.png",  
+                        width="100%",
+                        height="100px", 
+                        object_fit="cover", 
+                    ),
+                    rx.text(
+                        "filter your selection",  
+                        color="#FBFBFB",  
+                        font_size="0.5em",
+                        display="flex",
+                        justify_content="center",
+                        align_items="center",
+                    ),
+                    width="100%",
                     height="100px",
                     background= "#FBFBFB",
                     border_radius="218.50px",
+                    margin_right= "2rem",
+                    margin_left= "2rem",
                 ),
+
                 rx.box(
-                    width="30%",
+                    rx.image(
+                        src="icon3.png",  
+                        width="100%",
+                        height="100px", 
+                        object_fit="cover", 
+                    ),
+                    rx.text(
+                        "generate your outfit",  
+                        color="#FBFBFB",  
+                        font_size="0.5em",
+                        display="flex",
+                        justify_content="center",
+                        align_items="center",
+                    ),
+                    width="100%",
                     height="100px",
                     background= "#716969",
                     border_radius="218.50px",
+                    margin_left= "2rem"
                 ),
                 ),
 
@@ -122,4 +167,5 @@ def index() -> rx.Component:
 # Add state and page to the app.
 app = rx.App()
 app.add_page(index)
+app.add_page(selections)
 app.compile()
