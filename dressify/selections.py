@@ -15,7 +15,7 @@ color: List[str] = ["navy blue", "blue", "black", "grey", "green", "purple", "wh
 season: List[str] = ["fall", "summer", "winter", "spring"]
 
 def selections() -> rx.Component:
-    
+
     return rx.fragment(
         rx.color_mode_button(rx.color_mode_icon(), float="right"),
 
@@ -42,25 +42,28 @@ def selections() -> rx.Component:
             justify_content="center",
             align_items="center",
             ),
-            rx.select(
-                gender, placeholder="Select an example.", size="lg"
+            rx.form(
+                rx.select(
+                    gender, id="gender", placeholder="Select an example.", size="lg"
+                ),
+                rx.select(
+                    primaryattribute, placeholder="Select an example.", size="lg"
+                ),
+                rx.select(
+                    secondaryattribute, placeholder="Select an example.", size="lg"
+                ),
+                rx.select(
+                    itemtype, placeholder="Select an example.", size="lg"
+                ),
+                rx.select(
+                    color, placeholder="Select an example.", size="lg"
+                ),
+                rx.select(
+                    season, placeholder="Select an example.", size="lg"
+                ),
+                rx.button("Submit", type_="submit"),
+                on_submit=State.handle_form
             ),
-            rx.select(
-                primaryattribute, placeholder="Select an example.", size="lg"
-            ),
-            rx.select(
-                secondaryattribute, placeholder="Select an example.", size="lg"
-            ),
-            rx.select(
-                itemtype, placeholder="Select an example.", size="lg"
-            ),
-            rx.select(
-                color, placeholder="Select an example.", size="lg"
-            ),
-            rx.select(
-                season, placeholder="Select an example.", size="lg"
-            ),
-            
             rx.link(
                 "+ add items",
                 border="0.1em solid",
